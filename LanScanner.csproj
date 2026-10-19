@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AssemblyName>LanScanner</AssemblyName>
+    <RootNamespace>LanScanner</RootNamespace>
+    <Version>1.0.0</Version>
+    <ApplicationIcon>antenna.ico</ApplicationIcon>
+    <Company>Mauro Tassera</Company>
+    <Authors>Mauro Tassera</Authors>
+    <Product>LAN Scanner</Product>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.104.2" />
+    <PackageReference Include="System.Management" Version="8.0.0" />
+  </ItemGroup>
+
+  <!-- Se oui.txt è nella cartella del progetto, viene copiato accanto all'exe a ogni build/publish -->
+  <ItemGroup>
+    <None Include="oui.txt" Condition="Exists('oui.txt')">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
